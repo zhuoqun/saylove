@@ -1,0 +1,144 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="zh"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>写信 | Say Love - Where True Hearts Meet</title>
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/libs/modernizr-2.5.3.min.js"></script>
+</head>
+<body>
+  <header class="container title">
+    <div class="row">
+      <div class="span8">
+        <h1>Say Love <span>Where True Hearts Meet</span></h1>
+      </div>
+      <div class="span4">
+        <ul class="menu">
+          <li><a href="">随便看看</a></li>
+          <li><a href="">发件箱</a></li>
+          <li><a href="">回音箱</a></li>
+          <li><a href="">收藏夹</a></li>
+          <li><a href="">退出</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- Help Modal -->
+  <div class="modal hide" id="helpModal" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="helpModalLabel">如何找到对方的用户名或 ID ？</h3>
+    </div>
+    <div class="modal-body">
+      <div class="section">
+        <h4>1. 新浪微博</h4>
+        <p>可以用 @ 提到的即是 Ta 的新浪微博用户名，如图：</p>
+      </div>
+
+      <div class="section">
+        <h4>2. 豆瓣网</h4>
+        <p>点击到 Ta 的豆瓣主页，网址中的最后那个部分即是 Ta 的豆瓣 ID，如图:</p>
+      </div>
+
+      <div class="section">
+        <h4>3. 人人网</h4>
+        <p>点击到 Ta 的人人主页，网址中的数字部分即是 Ta 的人人 ID，如图:</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="wrapper">
+      <div class="row">
+        <div class="span12">
+
+          <div class="write">
+            <form class="form-horizontal">
+              <legend>写信</legend>
+              <div class="control-group">
+                <label class="control-label" for="account_type">Ta 的帐号类型</label>
+                <div class="controls">
+                  <select id="account_type">
+                    <option value="weibo">新浪微博</option>
+                    <option value="douban">豆瓣网</option>
+                    <option value="renren">人人网</option>
+                    <option value="qq">QQ 帐号</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="control-group username">
+                <label class="control-label" for="username">Ta 的新浪微博账号</label>
+                <div class="controls">
+                  <input id="username" type="text" >
+                  <span class="help-inline"><a href="#helpModal" data-toggle="modal">如何找到对方的新浪微博账号？</a></span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label" for="content">内容</label>
+                <div class="controls">
+                  <textarea id="content"></textarea>
+                  <span class="help-block quote">但凡未得到，但凡已失去，总是最登对。</span>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <label class="control-label">设置</label>
+
+                <div class="controls">
+                  <label class="checkbox inline" for="public">
+                    <input type="checkbox" id="public" checked="checked" > 公开显示(不会显示你的名字)
+                  </label>
+
+                  <label class="checkbox inline" for="commenton">
+                    <input type="checkbox" id="commenton" checked="checked" > 允许评论
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary">发布</button>
+                <button type="button" class="btn">取消</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="container">
+    <div class="row">
+      <div class="span8">
+        <p>
+          <span>© 2012 SAY LO♥E</span>
+          <span class="siteinfo">
+            <a href="#">关于 Say Love</a> •
+            <a href="#">帮助</a> •
+            <a href="#">联系我们</a>
+          </span>
+          <span>Handmade by <a href="">zhuoqun</a> &amp; <a href="">Lin</a></span>
+        </p>
+      </div>
+      <div class="span4 principle">
+        <p>We want to touch your heart and make you smile.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/libs/jquery-1.8.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/bootstrap-modal.js"></script>
+</body>
+</html>

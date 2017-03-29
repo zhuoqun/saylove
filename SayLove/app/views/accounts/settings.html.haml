@@ -1,0 +1,42 @@
+.settings
+  = form_tag settings_path, :class => 'form-horizontal' do
+    %legend 设置
+    - if flash[:notice].present?
+      .alert.alert-success
+        = flash[:notice]
+    - if @user.email.present? && @user.errors.blank?
+      .control-group.my-email
+        = label_tag :email, '邮箱：', :class => 'control-label'
+        .controls.js-display
+          %span#email
+            = @user.email
+          %span.help-inline
+            = link_to '修改', '#', :class => 'js-edit'
+        .controls.js-edit.hide
+          = text_field_tag :email, @user.email
+    - else
+      - error = @user.errors.blank? ? '' : 'error'
+      - message = @user.errors.messages[:email].blank? ? '' : @user.errors.messages[:email].first
+      .control-group{:class => error}
+        = label_tag :email, '邮箱：', :class => 'control-label'
+        .controls
+          = text_field_tag :email, params[:email]
+          %span.help-inline
+            = message
+    .control-group
+      = label_tag :email_options, '接收邮件设置：', :class => 'control-label'
+      .controls
+        %label.checkbox{:for => "echo"}
+          = check_box_tag :echo, 1, @user.email_option.echo
+          我的信有了回音
+        %label.checkbox{:for => "flower"}
+          = check_box_tag :flower, 1, @user.email_option.flower
+          有人送祝福给我
+        %label.checkbox{:for => "comment"}
+          = check_box_tag :comment, 1, @user.email_option.comment
+          有人评论了我的信
+    .control-group.why-not-sns
+      .controls
+        = link_to '为什么不使用豆瓣/微博的站内通知？', faq_path + '#why_email', :target => '_blank'
+    .form-actions
+      = submit_tag '保存设置', {:class => 'btn btn-primary'}

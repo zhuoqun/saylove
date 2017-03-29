@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  letter_id: MyString
+  disable: false
+
+two:
+  user_id: MyString
+  letter_id: MyString
+  disable: false

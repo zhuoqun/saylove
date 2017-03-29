@@ -1,0 +1,10 @@
+.row.login
+  .span12
+    %h2 请登录后继续访问
+    %ul.social.clearfix
+      %li
+        = link_to (image_tag "douban_login.png", {:alt => "使用豆瓣账号登录"}), "/auth/douban"
+      %li
+        = link_to (image_tag "weibo_login.png", {:alt => "使用微博账号登录"}), "/auth/weibo"
+      %li.last
+        = link_to (image_tag "mobile_login.png", {:alt => "使用手机账号登录"}), mobile_path

@@ -1,0 +1,23 @@
+- if @notifications.blank?
+  .letter
+    .content
+      %p 你暂时还没有收到任何通知。
+- else
+  .notifications
+    %h2 通知
+    %ul
+      - @notifications.each do |notification|
+        - unread = notification.unread ? 'unread' : ''
+        %li{:class => unread}
+          - if notification.category == 'flower'
+            %p
+              你的
+              = link_to "一封情书", letter_path(notification.letter_id) + '#flowers'
+              收到了 #{notification.count} 个祝福。
+          - elsif notification.category == 'comment'
+            %p
+              你的
+              = link_to "一封情书", letter_path(notification.letter_id) + '#comments'
+              有了 #{notification.count} 条新回复。
+    = will_paginate @notifications, :class => "pagination pagination-centered", :previous_label => "上一页", :next_label => "下一页"
+    - @notifications.update_all(:unread => false)

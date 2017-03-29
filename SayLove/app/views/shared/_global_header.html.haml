@@ -1,0 +1,19 @@
+%header.container.title
+  .row
+    .span6
+      %h1
+        = link_to "Say Love", root_path, :id => 'logo'
+        %span Where True Hearts Meet
+    .span6
+      - if @page_id != 'welcome'
+        %ul.menu
+          - if session[:user_id].nil?
+            - nav_items = global_nav_items_unlog_in
+          - else
+            - nav_items = global_nav_items_logged_in
+          - nav_items.each do |nav|
+            - active = @page_id == nav[:id] ? 'active' : ''
+            - unread_count = nav[:unread_count].blank? ? '' : "(#{nav[:unread_count]})"
+            %li
+              %a{:href => nav[:url], :class => active}
+                = t("page_#{nav[:id]}".to_sym) + unread_count

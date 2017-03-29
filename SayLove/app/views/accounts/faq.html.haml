@@ -1,0 +1,44 @@
+.faq
+  %h2 常见问题
+  .section
+    %h3 Say Love 是什么？
+    %p 通俗一点来说，Say Love 是一个「情书支付宝」。如果你喜欢一个人又不敢向 Ta 表白，可以在这里给 Ta 写信，然后把 Say Love 推荐给 Ta 。如果 Ta 也写信给你，那么你们就会收到彼此的信，否则 Ta 永远都不会知道你曾经写过信。
+    %p 技术只能帮助你降低一些风险，比如说，你可能不想失去一个好朋友，但是它无法完全替代一些东西。在偷偷写信和当面表白之间，如果你足够喜欢一个人的话，相信你有勇气做出正确的选择。
+  .section
+    %h3 我有微博账号，也有豆瓣账号，那么这两个账号算是同一个人吗？
+    %p
+      不算。每个不同社交网络账号都会被认为是不同的用户，以后可能会允许用户把自己的身份连通起来，但目前还不可以。所以如果你用豆瓣账号给 Ta 写信，而 Ta 给你的微博账号回信，那么你们肯定
+      %strong 不会
+      收到对方的信，切记切记。
+  .section#why_email
+    %h3 为什么回音不能以豆邮或私信的方式在豆瓣/微博通知我？
+    %p 现在豆瓣和微博的 API 都采用了 OAuth2.0 协议，所以用户授权会有过期时间，也就是说如果你写信之后一个月没有登录，授权可能就会过期。这个时候如果对方回信给你，系统就没办法再通过你的授权给你发消息了。
+    %p
+      由于上面提到的无法克服的技术因素。如果你想要收到回信提醒，建议在
+      = link_to '这里', settings_path
+      设置一下自己的邮箱，Say Love 绝对不会未经允许向你发送邮件。
+  .section
+    %h3 你会在后台偷偷看我们的信吗？
+    %p 当然不会啦！
+  .section
+    %h3 如何表达对这个应用的喜爱？
+    %p
+      如果你喜欢 Logo, 首页或者 favicon, 请到
+      = link_to '设计师的豆瓣', 'http://www.douban.com/people/desolatelin/', :target => '_blank'
+      感谢她。
+    %p
+      如果你喜欢网站的其它的部分，请到
+      = link_to '微博', 'http://weibo.com/zhuoqun', :target => '_blank'
+      或
+      = link_to '豆瓣', 'http://www.douban.com/people/DreamerWang/', :target => '_blank'
+      夸我两句就行了，文体不限。
+  .section
+    %h3 如何提交意见或反馈？
+    %p
+      你可以
+      = link_to '发邮件', 'mailto:zhuoqunwang@gmail.com'
+      给我，或者在
+      = link_to '微博', 'http://weibo.com/zhuoqun', :target => '_blank'
+      或
+      = link_to '豆瓣', 'http://www.douban.com/people/DreamerWang/', :target => '_blank'
+      给我留言。先行谢过。

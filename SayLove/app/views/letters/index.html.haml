@@ -1,0 +1,16 @@
+.submenu
+  查看：
+  - if @submenu == 'recent'
+    %span 最近
+    \/
+    = link_to "热门", hot_path
+  - elsif @submenu == 'hot'
+    = link_to "最近", recent_path
+    \/
+    %span 热门
+- @letters.each do |letter|
+  .letter{"data-letter-id" => letter.id}
+    .content
+      = sanitize letter.content
+    = render :partial => 'shared/letter_meta', :locals => { :letter => letter }
+= will_paginate @letters, :class => "pagination pagination-centered"

@@ -1,0 +1,5 @@
+.row.login
+  .span12
+    %h2 发送成功！你可以到发件箱中查看发出的信。
+    - if current_user.email.blank?
+      = link_to '设置邮箱，获取回音通知', settings_path

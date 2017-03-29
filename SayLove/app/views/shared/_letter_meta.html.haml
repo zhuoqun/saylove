@@ -1,0 +1,44 @@
+.meta.clearfix
+  .left
+    - if has_sent_flower?(letter.id)
+      %a.js-flower.active{:href => "#"}
+        %i.icon-gift
+        %span 已祝福 #{letter.flowers_cnt}
+    - else
+      %a.js-flower{:href => "#"}
+        %i.icon-gift
+        %span 祝福 #{letter.flowers_cnt}
+    - if has_favorited?(letter.id)
+      %a.js-favorite.favorited{:href => "#"}
+        %i.icon-heart
+        %span 已收藏
+    - else
+      %a.js-favorite{:href => "#"}
+        %i.icon-heart
+        %span 收藏
+    %a.view{:href => "#{letter_path(letter.id)}", :style => "display:none"}
+      %i.icon-eye-open
+      %span 查看此信
+  .right
+    - if letter.comments_on
+      %a{:href => "#{letter_path(letter.id)}#comments"}
+        %i.icon-comment
+        %span 评论 #{letter.comments.count}
+    - else
+      %span.off 评论已关闭
+    %a.share{:href => "#"}
+      %i.icon-share-alt
+      %span 分享
+    .sharebox
+      #bdshare.bdshare_t.bds_tools.get-codes-bdshare{:data => "{'url':'#{letter_url(letter)}', 'text':'转自@SayLove应用 ：#{truncate_letter_content(letter.content)}'}"}
+        %a.bds_douban
+        %a.bds_tsina
+        %a.bds_renren
+        %a.bds_tqq
+        %a.bds_ff
+        %a.bds_qzone
+        %a.bds_tieba
+        %a.bds_t163
+        %a.bds_diandian
+        %a.bds_kaixin001
+      .arrow

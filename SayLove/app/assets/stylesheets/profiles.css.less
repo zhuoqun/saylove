@@ -1,0 +1,94 @@
+@import "common.less";
+
+/*------------------- notification --------------------*/
+
+.notifications {
+  .placard;
+  padding: 10px 20px;
+
+  h2 {
+    font-weight: 200;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 5px;
+  }
+
+  ul {
+    li {
+      padding: 15px 0 5px 20px;
+      border-bottom: 1px solid #EFEFEF;
+      background: #EEE;
+
+      &.unread {
+        background: #FFF;
+      }
+    }
+  }
+
+  .pagination {
+    margin: 20px 0 0;
+    height: 25px;
+
+    a:hover {
+      background: #eee;
+      text-decoration: none;
+    }
+
+    li {
+      a, span {
+        border: none;
+        .border-radius(3px);
+        line-height: 20px;
+        margin-right: 5px;
+      }
+
+      &.active a, &.active span {
+        background: #eee;
+        cursor: default;
+      }
+    }
+
+  }
+}
+
+/*------------------- settings --------------------*/
+.settings {
+  .placard;
+  padding: 10px 20px;
+
+  a {
+    font-size: 12px;
+    padding: 0;
+
+    &:hover {
+      background: #fff;
+      color: #A65876;
+      text-decoration: underline;
+    }
+  }
+
+  .my-email > .controls {
+    padding-top: 5px;
+  }
+}
+
+/*------------------- faq --------------------*/
+.faq {
+  .placard;
+  padding: 10px;
+
+  h2 {
+    font-weight: 200;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 5px;
+  }
+
+  h3 {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .section {
+    padding: 0 10px;
+    margin-bottom: 20px;
+  }
+}

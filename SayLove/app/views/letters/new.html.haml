@@ -1,0 +1,87 @@
+<!doctype html>
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "zh"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %title 写信 | Say Love - Where True Hearts Meet
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    = stylesheet_link_tag "bootstrap.min", "letters", :media => "all"
+    = javascript_include_tag "modernizr-2.5.3.min"
+    = csrf_meta_tags
+  %body
+    = render "shared/global_header"
+    / Help Modal
+    #helpModal.modal.hide{"aria-hidden" => "true", "aria-labelledby" => "helpModalLabel", :role => "dialog"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#helpModalLabel 如何找到对方的用户名或 ID ？
+      .modal-body
+        %ul#helpTab.nav.nav-tabs
+          %li.active
+            %a.help-weibo{:href => "#help_weibo"} 新浪微博
+          %li
+            %a.help-douban{:href => "#help_douban"} 豆瓣网
+        .tab-content
+          #help_weibo.tab-pane.active
+            %p 可以用 @ 提到的即是 Ta 的新浪微博用户名，如图：
+            = image_tag "uid_weibo.png"
+          #help_douban.tab-pane
+            %p 点击到 Ta 的豆瓣主页，网址中的最后那个部分即是 Ta 的豆瓣 ID，如图:
+            = image_tag "uid_douban.png"
+    .container
+      .wrapper
+        .row
+          .span12
+            .write
+              = form_tag letters_path, :class => 'form-horizontal' do
+                %legend 写信
+                .control-group.my-account
+                  = label_tag :my_account, '我的账号', :class => 'control-label'
+                  .controls
+                    %span#my_account #{get_provider_display_name}: #{current_user.user_name}
+                    = hidden_field_tag :my_uid, current_user.id
+                .control-group
+                  = label_tag :account_type, 'Ta 的帐号类型', :class => 'control-label'
+                  .controls
+                    = select_tag :account_type, options_for_select([['新浪微博', 'weibo'], ['豆瓣网', 'douban']])
+                .control-group.username
+                  = label_tag :username, 'Ta 的新浪微博账号', :class => 'control-label'
+                  .controls
+                    = text_field_tag :username
+                    = hidden_field_tag :userid
+                    %span.help-inline.js-help
+                      = link_to '如何找到对方的新浪微博账号？', '#helpModal', {'data-toggle' => 'modal'}
+                    %span.help-inline.js-search.hide
+                      = image_tag 'loading.gif', {:class => 'loading'}
+                      = image_tag 'correct.png', {:class => 'correct'}
+                      %span 正在验证用户是否存在...
+                .control-group
+                  = label_tag :content, '内容', :class => 'control-label'
+                  .controls
+                    = text_area_tag :content, @draft
+                    %span.help-block.quote
+                      = @quote.content
+                .control-group
+                  %label.control-label 设置
+                  .controls
+                    %label.checkbox{:for => "public"}
+                      = check_box_tag :public
+                      公开到首页 (不会显示你的名字)
+                .control-group.comments-setting.hide
+                  .controls
+                    %label.checkbox.inline{:for => "commentson"}
+                      = check_box_tag :commentson, 1
+                      允许评论
+                .form-actions
+                  = submit_tag '送出', {:class => 'btn btn-primary publish', :disabled => true}
+                  %button.btn{:type => "button"} 取消
+                  - if current_user.email.blank?
+                    = link_to '设置邮箱，获取回音通知', settings_path, :target => '_blank', :class => 'set-email'
+    = render "shared/global_footer"
+    = javascript_include_tag "write"

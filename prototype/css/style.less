@@ -1,0 +1,540 @@
+/*------ functions ----------*/
+.min-height (@height : 0) {
+  min-height: @height;
+  height: auto !important; 
+  height: @height;
+}
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+.placard {
+  background: #fff;
+  .border-radius(5px);
+  border: 1px solid #FCE3E3;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+/*------ common ----------*/
+
+body {
+  background: url(../img/paper.png) repeat 0 0;
+  text-shadow: 0 1px 1px #FFF;
+}
+
+a {
+  color: #A65876;
+  border: none;
+  text-decoration:none;
+  padding:0.25em;
+
+  &.active, &:hover {
+    background: #A65876;
+    text-decoration:none;
+    color: #FFF;
+    .border-radius(0.25em);
+    text-shadow: none;
+  }
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+
+  &.social {
+    a:hover {
+      background: none;
+    }
+  }
+}
+
+.wrapper {
+  h2 {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .submenu {
+    .placard;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: right;
+    color: #999;
+
+    span {
+      color: #333;
+    }
+  }
+
+  .letter {
+    .placard;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+
+    .author {
+      margin: 30px 0 20px;
+      padding-top: 10px;
+      border-top: 1px dashed #FCE3E3;
+    }
+
+    .meta {
+      margin: 25px 0 10px;
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+      }
+
+      a {
+        border: 1px solid #FCE3E3;
+        color: #A65876;
+        text-shadow: none;
+        padding: 5px;
+        .border-radius(3px);
+
+        &:hover {
+          border: 1px solid #A65876;
+          background: #fff;
+        }
+      }
+    }
+  }
+
+  .sidebar {
+    .placard;
+
+    #write_btn {
+      margin: 20px auto;
+    }
+  }
+
+  .affix {
+    width: 300px;
+  }
+
+  .pagination {
+    a:hover {
+      color: #B35F7F;
+    }
+  }
+}
+
+/*------ header ----------*/
+
+.title {
+  h1 {
+    font-size: 24px;
+
+    span {
+      margin-left: 10px;
+      font-weight: 400;
+      font-size: 14px;
+      color: #999;
+    }
+  }
+
+  .menu {
+    margin: 21px 0 0;
+    text-align: right;
+    float: right;
+    
+    li {
+      float: left;
+      margin-left: 10px;
+    }
+  }
+}
+
+footer {
+  padding: 20px 0 10px;
+  color: #999;
+  font-size: 13px;
+
+  .siteinfo {
+    margin: 0 20px;
+  }
+
+  .principle {
+    font-size: 12px;
+    text-align: right;
+    color: #DDD;
+  }
+}
+
+.wrap-box {
+  .border-radius(5px);
+  border: 1px solid #FCE3E3;
+  background: #FCF0F0;
+}
+
+.mobile {
+  .border-radius(5px);
+  border: 1px solid #FCE3E3;
+  background: #FFF;
+
+  .iphone {
+    margin: 0 auto 40px;
+    width: 480px;
+    height: 558px;
+    background: url(../img/iphone.png) no-repeat 28px 60px;
+    position: relative;
+    .transition(background 0.5s ease-in);
+
+    &:hover {
+      cursor: pointer;
+      background-position: 28px 20px;
+    }
+
+   .shadow {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+   } 
+  }
+}
+
+#write_btn {
+  display: block;
+  margin: 160px auto 20px;
+  font-size: 22px;
+  background: #A65876;
+  color: #DDD;
+  text-align: center;
+  .border-radius(.25em);
+  width: 160px;
+  text-shadow: none;
+
+  &:hover {
+    color: #FFF;
+    background: #B35F7F;
+  }
+}
+
+/*------------------- index --------------------*/
+
+.intro {
+  .rules {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 40px 20px;
+    color: #666;
+
+    .second {
+      text-align: center;
+    }
+
+    .third {
+      text-align: right;
+    }
+
+    .last {
+      margin-top: 40px;
+      font-size: 18px;
+    }
+  }
+
+  .social {
+    margin: 100px 0 40px 40px;
+
+    li {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+
+  .span4 {
+    text-align: center;
+    color: #666;
+  }
+}
+
+/*------------------- login --------------------*/
+
+.login {
+  text-align: center;
+  padding: 60px 0 80px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: 200;
+    line-height: 1.5;
+  }
+
+  .social {
+    width: 404px;
+    margin: 20px auto 0;
+
+    li {
+      float: left;
+      margin-right: 10px;
+
+      &.last {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/*------------------- write --------------------*/
+
+.write {
+  .placard;
+  padding: 10px 20px;
+
+  textarea {
+    height: 245px;
+    width: 700px;
+    resize: none;
+  }
+}
+
+.help-inline {
+  a:hover {
+    background: #fff;
+    color: #A65876;
+    text-decoration: underline;
+  }
+}
+
+.quote {
+  text-align: right;
+  font-size: 16px;
+  font-style: italic;
+  color: #ccc;
+}
+
+.modal {
+  h3 {
+    font-size: 16px;
+  }
+
+  h4 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .section {
+    margin-bottom: 30px;
+  }
+}
+
+/*------------------- single --------------------*/
+.comments-area {
+  .placard;
+  padding: 10px 20px;
+  position: relative;
+
+  a:hover {
+    color: #A65876;
+    background: #fff;
+    text-decoration: underline;
+  }
+
+  .arrow {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+
+    top: -10px;
+    left: 50%;
+    margin-left: -10px;
+    border-bottom-color: #ffffff;
+    border-width: 0 10px 10px;
+
+    &:after {
+      position: absolute;
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+
+      z-index: -1;
+      content: "";
+
+      top: -1px;
+      left: -11px;
+      border-bottom-color: #FCE3E3;
+      border-width: 0 11px 11px;
+    }
+  }
+
+  .nav-tabs {
+    border-bottom-color: #FCE3E3;
+
+    a:hover {
+      color: #A65876;
+    }
+
+    .active > a, .active > a:hover {
+      color: #555;
+      border-color: #FCE3E3;
+      border-bottom-color: transparent;
+    }
+  }
+
+  #flowers {
+    p {
+      color: #999;
+    }
+  }
+
+  #comments {
+    .list > li {
+      padding: 10px 0;
+      border-bottom: 1px dashed #FCE3E3;
+
+      &:first-child {
+        padding-top: 0;
+      }
+    }
+
+    .avatar {
+      float: left;
+    }
+
+    .comment-body {
+      margin-left: 35px;
+      font-size: 12px;
+      line-height: 21px;
+      color: #666;
+    }
+
+    .timestamp {
+      float: right;
+      color: #aaa;
+      font-size: 9px;
+    }
+
+    .pagination {
+      margin: 10px 0 0;
+      height: 25px;
+
+      a:hover {
+        background: #eee;
+        text-decoration: none;
+      }
+
+      li {
+        a, span {
+          border: none;
+          .border-radius(3px);
+          line-height: 20px;
+          margin-right: 5px;
+        }
+
+        &.active a, &.active span {
+          background: #eee;
+          cursor: default;
+        }
+      }
+
+    }
+
+  }
+}
+
+.comment-input {
+  .placard;
+  padding: 10px 20px;
+  margin-top: 10px;
+
+  h3 {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+  }
+
+  .avatar {
+    float: left;
+  }
+
+  .body {
+    margin-left: 35px;
+
+    .anonymous {
+      float: left;
+      color: #666;
+
+      input {
+        margin-top: -1px;
+      }
+    }
+  }
+
+
+  textarea {
+    width: 527px;
+    height: 50px;
+    resize: none;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+/*------------------- notification --------------------*/
+
+.notifications {
+  .placard;
+  padding: 10px 20px;
+
+  h2 {
+    font-weight: 200;
+    border-bottom: 1px solid #EEE;
+    padding-bottom: 5px;
+  }
+
+  ul {
+    li {
+      padding: 15px 0 5px 20px;
+      border-bottom: 1px solid #EFEFEF;
+      background: #EEE;
+
+      &.unread {
+        background: #FFF;
+      }
+    }
+  }
+
+  .pagination {
+    margin: 20px 0 0;
+    height: 25px;
+
+    a:hover {
+      background: #eee;
+      text-decoration: none;
+    }
+
+    li {
+      a, span {
+        border: none;
+        .border-radius(3px);
+        line-height: 20px;
+        margin-right: 5px;
+      }
+
+      &.active a, &.active span {
+        background: #eee;
+        cursor: default;
+      }
+    }
+
+  }
+}

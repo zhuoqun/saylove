@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  echo: false
+  flower: false
+  comment: false
+
+two:
+  echo: false
+  flower: false
+  comment: false

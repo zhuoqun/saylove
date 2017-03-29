@@ -1,0 +1,10 @@
+- if @letters.blank?
+  .letter
+    .content
+      %p 你还没有收藏过任何信。
+- @letters.each do |letter|
+  .letter{"data-letter-id" => letter.id}
+    .content
+      = sanitize letter.content
+    = render :partial => 'shared/letter_meta', :locals => { :letter => letter }
+= will_paginate @letters, :class => "pagination pagination-centered"

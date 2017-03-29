@@ -1,0 +1,27 @@
+%footer.container
+  .row
+    .span8
+      %p
+        %span © 2012 SAY LO♥E
+        %span.siteinfo
+          = link_to '常见问题', faq_path
+          •
+          = link_to '联系我们', 'mailto:zhuoqunwang@gmail.com'
+        %span
+          Handmade by
+          = link_to 'zhuoqun', 'http://www.zhuoqun.net', :target => '_blank'
+          &
+          = link_to 'Lin', 'http://www.douban.com/people/desolatelin/', :target => '_blank'
+    .span4.principle
+      %p We want to touch your heart and make you smile.
+%script
+  :plain
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36090848-1']);
+    _gaq.push(['_setDomainName', 'isaylove.com']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

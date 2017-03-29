@@ -1,0 +1,27 @@
+@import "common.less";
+
+.mobile {
+  .border-radius(5px);
+  border: 1px solid #FCE3E3;
+  background: #FFF;
+
+  .iphone {
+    margin: 0 auto 40px;
+    width: 480px;
+    height: 558px;
+    background: image-url("iphone.png") no-repeat 28px 60px;
+    position: relative;
+    .transition(background 0.5s ease-in);
+    
+    &:hover {
+      cursor: pointer;
+      background-position: 28px 20px;
+    }
+
+   .shadow {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+   }
+  }
+}

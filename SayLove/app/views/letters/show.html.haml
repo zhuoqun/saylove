@@ -1,0 +1,64 @@
+.letter{"data-letter-id" => @letter.id}
+  .content
+    = sanitize @letter.content
+  - if @letter.is_public
+    = hidden_field_tag :single, 1
+    = render :partial => 'shared/letter_meta', :locals => { :letter => @letter }
+  - else
+    .meta.clearfix
+      .left
+        %span.off 此信没有公开
+
+- if @letter.is_public
+  .comments-area
+    .arrow
+    - active = @letter.comments_on ? '' : 'active'
+    %ul#commentsTab.nav.nav-tabs
+      %li{:class => active}
+        %a{:href => "#flowers"} 祝福 (#{@letter.flowers_cnt})
+      - if @letter.comments_on
+        %li.active
+          %a{:href => "#comments"} 评论 (#{@comments.count})
+    .tab-content
+      #flowers.tab-pane{:class => active}
+        - if @letter.flowers.count <= 0
+          %p 暂时还没有人祝福。
+        - else
+          %p
+            来自：
+            - @letter.flowers.each_with_index do |flower, index|
+              = link_to flower.user.user_name, flower.user.provider.url, {:target => '_blank'}
+              - if index + 1 < @letter.flowers_cnt
+                ，
+      - if @letter.comments_on
+        #comments.tab-pane.active
+          - if @comments.count <= 0
+            %p 暂时还没有人评论。
+          - else
+            %ul.list
+              - @comments.each do |comment|
+                %li.clearfix
+                  %a.avatar{:href => "#{comment.user.provider.url}"}
+                    %img{:height => "20px", :src => "#{comment.user.avatar}", :width => "20px"}/
+                  .comment-body
+                    = link_to comment.user.user_name, comment.user.provider.url
+                    \:
+                    = sanitize comment.content
+            = will_paginate @comments, :class => "pagination pagination-centered"
+  - if @letter.comments_on
+    - if current_user
+      #comment_input.comment-input.clearfix
+        %h3 添加评论
+        %a.avatar{:href => "#{current_user.provider.url}"}
+          %img{:height => "30px", :src => "#{current_user.avatar}", :width => "30px"}/
+        .body
+          = form_tag letter_comments_path(@letter.id), :class => 'form-horizontal' do
+            %textarea{:name => 'content'}
+            .ctrl.clearfix
+              = submit_tag '发布', {:class => 'btn publish', :disabled => true}
+    - else
+      #comment_input.comment-input.clearfix
+        %h3
+          请
+          = link_to '登录', login_path + '?url=' + letter_path(@letter)
+          后评论

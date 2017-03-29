@@ -1,0 +1,19 @@
+- if @letters.blank?
+  .letter
+    .content
+      %p 你暂时还没有收到回信。
+- @letters.each do |letter|
+  .letter{"data-letter-id" => letter.id}
+    .content
+      = sanitize letter.content
+    .author
+      Ta 的 #{t(letter.user.provider.provider.to_sym)}：
+      = link_to letter.user.provider.url, letter.user.provider.url, {:target => '_blank'}
+    - if letter.is_public
+      = render :partial => 'shared/letter_meta', :locals => { :letter => letter }
+    - else
+      .meta.clearfix
+        .left
+          %span.off 此信没有公开
+          %a.view{:href => "#{letter_path(letter.id)}", :style => "display:none"} 查看此信
+= will_paginate @letters, :class => "pagination pagination-centered"
